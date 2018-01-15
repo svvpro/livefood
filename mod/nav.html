@@ -1,0 +1,33 @@
+<div id = "nav" style="background:url('http://www.livefood.in.ua/img/bg_header.png') repeat;">
+<?php
+	//var_dump($_SERVER);
+	//if (isset($_POST['save']))
+	//http://www.livefood.in.ua/ru/livefood.in.ua/ru/livefood.in.ua/ru/livefood.in.ua/ru/livefood.in.ua/ru/products.php?class=1
+?>
+			<ul class ="mainmenu">
+				<li><a class = "main" href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'http://www.livefood.in.ua/ru/index.php" title = "О компании">О компании';} else {print 'http://www.livefood.in.ua/ua/index.php" title = "Про компанію">Про компанію';}?></a></li>
+				<li><a class = "main" href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'http://www.livefood.in.ua/ru/products.php" title = "Корм для вашего питомца">Продукция';} else {print 'http://www.livefood.in.ua/ua/products.php" title = "Корм для вашого вихованця">Продукція';}?></a></li>
+				<li><a class = "main" href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'http://www.livefood.in.ua/ru/article.php" title = "Полезная информация">Статьи';} else {print 'http://www.livefood.in.ua/ua/article.php" title = "Корисна інформація">Статті';}?></a></li>
+				<li style = "border-right:none;"><a class = "main" href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'http://www.livefood.in.ua/ru/ties.php" title = "Как с нами связаться">Контакты';} else {print 'http://www.livefood.in.ua/ua/ties.php" title = "Як з нами зв\'язатися">Контакти';}?></a></li>
+				<?php
+					if (isset($_SESSION['status_user']))
+					{
+						//print $_SESSION['status_user'] ."</br>";
+						if ($_SESSION['status_user'] == '10')
+						{
+							print '<li style = "border-right:none; border-left: 1px solid #F4E4D2;"><a class = "main" href = "';
+							if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false)
+							{
+								print 'http://www.livefood.in.ua/ru/adm.php" title = "Администрирование">Администрирование';
+							} 
+							else
+							{
+								print 'http://www.livefood.in.ua/ua/adm.php" title = "Администрирование">Администрирование';
+							}
+							print '</a></li>';
+						}
+					}
+				?>
+			</ul><!--mainmenu-->
+
+</div><!--nav-->

@@ -1,0 +1,100 @@
+<?php
+if ( strpos($_SERVER['REQUEST_URI'], '/ru/') !== false || strpos($_SERVER['REQUEST_URI'], '/ua/') !== false )
+{
+	/*
+	print ($_SERVER['REQUEST_URI']);
+	print "<br />";
+	print substr($_SERVER['REQUEST_URI'], 4);
+	print "<br />";
+	print substr($_SERVER['REQUEST_URI'], 1, 2);
+	print "<br />";
+	*/
+	if ( strpos($_SERVER['REQUEST_URI'], '?exit') === false )
+	{
+		$ret = $db->query("select title,description,keywords from ?n where links = ?s and lang = ?s",'pages',substr($_SERVER['REQUEST_URI'], 4),substr($_SERVER['REQUEST_URI'], 1, 2));
+		if ($ret)
+		{
+			//$row_cnt = $ret->num_rows;
+			//print $row_cnt."<br />";
+			if ( $ret->num_rows != 0)
+			{
+				while ($row = $ret->fetch_row())
+		    {
+		    	//print "fetch_row <br />";
+		    	if ( isset($row[0]) )
+		    	{
+			    	print "<title>".$row[0]."</title>";
+			    	print '<meta name="description" content="'.$row[1].'" />';
+			    	print '<meta name="keywords" content="'.$row[2].'" />';
+			    }
+			    else
+			    {
+			    	print "<title>Живой корм для рептилий и птиц. Сверчок, зофобас. Киев</title>";
+			    	print '<meta name="description" content="Купить живой корм по низким ценам: сверчок, зофобас, львинка. Купить. Киев." />';
+			    	print '<meta name="keywords" content="живой корм, ящерицы, змеи, птицы, зофобас, сверчок, хамелеон, львинка, купить, Киев" />';
+			    }
+
+		    	//<title>Живой корм для рептилий и птиц. Сверчок, зофобас.</title>
+		    	//<meta name="description" content="Купить живой корм по низким ценам: сверчок, зофобас, львинка. У нас низкие цены, большой выбор, полезная информация в виде статей: как? сколько? и когда? кормить питомца." />
+		    	//<meta name="keywords" content="живой корм, ящерицы, змеи, птицы, зофобас, сверчок, хамелеон, львинка." />
+		    }
+		  }
+		  else
+		  {
+		  	$ret = $db->query("INSERT INTO ?n (links,lang) values (?s,?s);",'pages',substr($_SERVER['REQUEST_URI'], 4),substr($_SERVER['REQUEST_URI'], 1, 2));
+	    	print "<title>Живой корм для рептилий и птиц. Сверчок, зофобас.</title>";
+	    	print '<meta name="description" content="Купить живой корм по низким ценам: сверчок, зофобас, львинка. У нас низкие цены, большой выбор, полезная информация в виде статей: как? сколько? и когда? кормить питомца." />';
+	    	print '<meta name="keywords" content="живой корм, ящерицы, змеи, птицы, зофобас, сверчок, хамелеон, львинка." />';
+		  }
+	  }
+	}
+}
+?>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset = utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="yandex-verification" content="2970d3dd65b43b58" />
+<link href="http://livefood.in.ua/style/style.css" rel = "stylesheet" type = "text/css"/>
+<link href="http://livefood.in.ua/favicon.png" rel="shortcut icon" type="image/x-icon" />
+<link rel="alternate" hreflang="ru" href="http://www.livefood.in.ua/ru/<?php print substr($_SERVER['REQUEST_URI'], 4);?>" />
+<link rel="alternate" hreflang="uk" href="http://www.livefood.in.ua/ua/<?php print substr($_SERVER['REQUEST_URI'], 4);?>" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73080362-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter35155145 = new Ya.Metrika2({
+                    id:35155145,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks2");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/35155145" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->

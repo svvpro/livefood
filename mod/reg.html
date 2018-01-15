@@ -1,0 +1,25 @@
+<div id="reg" style="background:url('http://www.livefood.in.ua/img/bg_header.png') repeat;">
+			<span id = "title_main"><?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'АВТОРИЗАЦИЯ';} else {print 'АВТОРИЗАЦІЯ';}?></span><!--title_main-->
+			<div id ="lines"></div><!--lines-->
+			<div class = "reg_block">
+				<form id= "form_r1eg" name= "form_reg" action= "<?php 
+					if ( strpos($_SERVER['REQUEST_URI'], '?exit') !== false )
+					{
+						print substr($_SERVER['REQUEST_URI'], 0,strpos($_SERVER['REQUEST_URI'], '?exit'));
+					}
+					else print $_SERVER['REQUEST_URI'];					
+					?>" method= "post">
+					<ul class = "reg_enter" >
+						<li id = "margin" ><span><?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'ЛОГИН:';} else {print 'ЛОГІН:';}?></span><input type = "text" id= "text_reg" name= "login_auth" /></li>
+						<li><span>ПАРОЛЬ:</span><input type = "password" id= "password" name= "password_auth" /></li>
+					</ul><!--reg_block float: right; margin-right: 10px; -->
+
+					<div id = "a_reg">
+						<a class = "reg_help" href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'http://www.livefood.in.ua/ru/reg.php" title = "пройдите регистрацию">регистрация';} else {print 'http://www.livefood.in.ua/ua/reg.php" title = "пройдіть реєстрацію">реєстрація';}?></a><span> / </span><a class = "reg_help" href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'http://www.livefood.in.ua/ru/recovery.php" title = "если забыли пароль, то вам сюда">забыли пароль?';} else {print 'http://www.livefood.in.ua/ua/recovery.php" title = "якщо забули пароль, то вам сюди">забули пароль?';}?></a>
+					</div><!--a_reg-->
+					<div>
+						<input id= "input_reg" type= "submit" value= "" name= "key_auth" style="background:url('http://www.livefood.in.ua/img/enter_submit_<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'ru';} else {print 'ua';}?>.png') no-repeat 0 0;" />
+					</div>
+				</form><!--form_reg-->
+			</div><!--reg_block-->
+</div><!--reg-->

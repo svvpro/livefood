@@ -1,0 +1,50 @@
+<div id = "header">	
+			<div id = "logo">
+				<div id = "name_side">
+					<a href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'http://www.livefood.in.ua/ru/index.php" title = "Логотип">';} else {print 'http://www.livefood.in.ua/ua/index.php" title = "Логотип">';}?><img src = "http://www.livefood.in.ua/img/name_side.png" alt = "Живой корм"/></a>
+				</div><!--name_side-->
+
+				<div id = "label">
+					<div id = "branch" style="background:url('http://www.livefood.in.ua/img/branch.png');"></div><!--branch-->
+					<div id = "lizard" style="background:url('http://www.livefood.in.ua/img/lizard.png');"></div><!--lizard-->
+				</div><!--label-->
+
+				<div id = "header_contact">
+					<div id= "top_nomer_contact"><p>+38/099/524-41-02</p></div><!--top_nomer-->
+					<div id= "bottom_nomer_contact"><p>+38/067/306-58-02</p></div><!--bottom_nomer-->
+				</div><!--header_contact-->
+
+			</div><!--logo-->
+
+			
+			<div id = "right_side">
+				<div id = "lang">
+					<a href = "http://www.livefood.in.ua/ua<?php print strrchr($_SERVER['REQUEST_URI'], "/"); ?>" ><img src = "http://www.livefood.in.ua/img/ukraine_56.png" alt = ""/></a>
+					<a href = "http://www.livefood.in.ua/ru<?php print strrchr($_SERVER['REQUEST_URI'], "/"); ?>" ><img src = "http://www.livefood.in.ua/img/russia_56.png" alt = ""/></a>
+				</div><!--lang-->
+	
+				<div id = "basket">
+					<div id="basket_txt" style="font-family:arial,sans-serif; font-size:18px;position:absolute;margin-left:15px;margin-top:35px;width:180px;height:35px;border:solid 0px black;">
+					<?php if (isset($_SESSION['array_basket'])) print 'Товаров: '.count($_SESSION['array_basket']).' шт.'; 
+					//else print 'Товаров: ';
+					?>
+					</div>
+					<?php 
+						print '<div id = "submit_basket" style="';
+						if (isset($_SESSION['array_basket'])) print 'visibility: visible;';
+						else print 'visibility: hidden;';
+						print '"><a href = "http://www.livefood.in.ua/';
+						if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'ru/';} else {print 'ua/';}
+						print 'basket.php" id = "input_basket"><img src = "http://www.livefood.in.ua/img/basket_';
+						if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'ru';} else {print 'ua';}
+						print '.png" alt = ""/></a></div>';
+					?>
+					
+					<a href = "http://www.livefood.in.ua/<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print 'ru/';} else {print 'ua/';}?>basket.php">
+					<div id = "man_basket" style="background:url('http://www.livefood.in.ua/img/manbasket.png');"></div><!--man_basket-->
+					</a>
+
+				</div><!--basket-->
+			</div>
+		
+</div><!--header-->

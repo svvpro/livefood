@@ -1,0 +1,30 @@
+<div id="header">	
+			<div id = "logo">
+				<div id = "name_side">
+					<a href = "<?php if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false)
+						{print 'http://www.livefood.in.ua/ru/index.php" title="Логотип"><img src="http://www.livefood.in.ua/img/name_side_ru.png" alt="Живой корм" >';}
+						else {print 'http://www.livefood.in.ua/ua/index.php" title="Логотип"><img src="http://www.livefood.in.ua/img/name_side_ua.png" alt="Живий корм" >';}
+						?></a>
+				</div><!--name_side-->
+
+				<div id = "label">
+					<div id = "branch" style="background:url('http://www.livefood.in.ua/img/branch.png');"></div><!--branch-->
+					<div id = "lizard" style="background:url('http://www.livefood.in.ua/img/lizard.png');"></div><!--lizard-->
+				</div><!--label-->
+
+				<div id = "header_contact">
+					<div id= "top_nomer_contact">+38/099/524-41-02</div><!--top_nomer-->
+					<div id= "bottom_nomer_contact">+38/067/306-58-02</div><!--bottom_nomer-->
+				</div><!--header_contact-->
+			</div><!--logo-->
+			
+			<div id = "right_side">
+				<div id = "lang">
+					<a href = "http://www.livefood.in.ua/ua<?php print strrchr($_SERVER['REQUEST_URI'], "/"); ?>" ><img src = "http://www.livefood.in.ua/img/ukraine_56.png" alt = ""/></a>
+					<a href = "http://www.livefood.in.ua/ru<?php print strrchr($_SERVER['REQUEST_URI'], "/"); ?>" ><img src = "http://www.livefood.in.ua/img/russia_56.png" alt = ""/></a>
+				</div><!--lang-->
+	
+
+			</div>
+		
+</div><!--header-->

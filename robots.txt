@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /adm.php
+#Disallow: /ties.php
+Disallow: /basket.php
+#Disallow: /reg.php
+Disallow: /recovery.php
+#Disallow: /article.php
+#Disallow: /products.php
+
+
+
+
+Host: www.livefood.in.ua
+
+Sitemap: http://www.livefood.in.ua/sitemap.txt

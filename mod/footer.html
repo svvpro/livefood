@@ -1,0 +1,41 @@
+<div id = "footer" style="background:url('http://www.livefood.in.ua/img/bg_header.png') repeat;">	
+			<div id ="valid">
+				<p>
+	    		<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11" alt="XHTML Validator" height="31" width="88" /></a>
+	  		</p>
+			</div>
+
+			<div id ="worm" style="background:url('http://www.livefood.in.ua/img/worm.png');"></div>
+			<span id ="right">&copy; 2013 - 
+<?php
+	$localtime = localtime(time());
+	print(1900+$localtime[5]);
+	if (strpos($_SERVER['REQUEST_URI'], '/ru/') !== false) {print ' все права защищены. Копирование информации разрешается при указании внешней ссылки.';} else {print ' всі права захищено. Копіювання інформації дозволяється при вказуванні зовнішнього посилання.';}
+?></span>
+</div><!--footer-->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter35155145 = new Ya.Metrika({id:35155145,
+                    webvisor:true,
+                    clickmap:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/35155145" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
